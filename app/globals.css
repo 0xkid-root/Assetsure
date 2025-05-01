@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  
+  /* Color RGB values for glow effects */
+  --blue-rgb: 59, 130, 246;
+  --indigo-rgb: 99, 102, 241;
+  --purple-rgb: 147, 51, 234;
+  --pink-rgb: 236, 72, 153;
+  --rose-rgb: 244, 63, 94;
+  --amber-rgb: 245, 158, 11;
+  --orange-rgb: 249, 115, 22;
+  --emerald-rgb: 16, 185, 129;
+  --teal-rgb: 20, 184, 166;
+  --cyan-rgb: 6, 182, 212;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+  
+
+}
+
+@layer base {
+  :root {
+    --background: 220, 20%, 97%;
+    --foreground: 222, 47%, 11%;
+    
+    --card: 0, 0%, 100%;
+    --card-foreground: 222, 47%, 11%;
+    
+    --popover: 0, 0%, 100%;
+    --popover-foreground: 222, 47%, 11%;
+    
+    --primary: 221, 83%, 53%;
+    --primary-foreground: 210, 40%, 98%;
+    
+    --secondary: 210, 40%, 96.1%;
+    --secondary-foreground: 222, 47%, 11%;
+    
+    --muted: 210, 40%, 96.1%;
+    --muted-foreground: 215, 16%, 47%;
+    
+    --accent: 40, 91%, 58%;
+    --accent-foreground: 222, 47%, 11%;
+    
+    --destructive: 0, 84.2%, 60.2%;
+    --destructive-foreground: 210, 40%, 98%;
+    
+    --border: 214, 32%, 91%;
+    --input: 214, 32%, 91%;
+    --ring: 222, 47%, 11%;
+    
+    --radius: 0.5rem;
+    
+    --navy-100: 224, 76%, 98%;
+    --navy-200: 224, 64%, 94%;
+    --navy-300: 226, 57%, 84%;
+    --navy-400: 226, 50%, 76%;
+    --navy-500: 227, 42%, 55%;
+    --navy-600: 228, 45%, 45%;
+    --navy-700: 230, 49%, 36%;
+    --navy-800: 230, 56%, 22%;
+    --navy-900: 228, 62%, 15%;
+    
+    --gold-100: 39, 100%, 95%;
+    --gold-200: 40, 95%, 88%;
+    --gold-300: 41, 90%, 75%;
+    --gold-400: 40, 94%, 68%;
+    --gold-500: 40, 91%, 58%;
+    --gold-600: 36, 80%, 50%;
+    --gold-700: 35, 85%, 40%;
+    --gold-800: 35, 92%, 30%;
+    --gold-900: 36, 100%, 18%;
+
+    --chart-1: 221, 83%, 53%;
+    --chart-2: 40, 91%, 58%;
+    --chart-3: 142, 71%, 45%;
+    --chart-4: 326, 100%, 74%;
+    --chart-5: 262, 83%, 58%;
+  }
+  
+  .dark {
+    --background: 220, 30%, 7%;
+    --foreground: 210, 40%, 98%;
+    
+    --card: 224, 71%, 4%;
+    --card-foreground: 210, 40%, 98%;
+    
+    --popover: 224, 71%, 4%;
+    --popover-foreground: 210, 40%, 98%;
+    
+    --primary: 217, 91%, 60%;
+    --primary-foreground: 210, 40%, 98%;
+    
+    --secondary: 220, 40%, 12%;
+    --secondary-foreground: 210, 40%, 98%;
+    
+    --muted: 215, 28%, 17%;
+    --muted-foreground: 215, 20%, 65%;
+    
+    --accent: 40, 91%, 58%;
+    --accent-foreground: 220, 40%, 12%;
+    
+    --destructive: 0, 62.8%, 30.6%;
+    --destructive-foreground: 210, 40%, 98%;
+    
+    --border: 215, 28%, 17%;
+    --input: 215, 28%, 17%;
+    --ring: 210, 40%, 98%;
+    
+    --navy-900: 224, 76%, 98%;
+    --navy-800: 224, 64%, 94%;
+    --navy-700: 226, 57%, 84%;
+    --navy-600: 226, 50%, 76%;
+    --navy-500: 227, 42%, 55%;
+    --navy-400: 228, 45%, 45%;
+    --navy-300: 230, 49%, 36%;
+    --navy-200: 230, 56%, 22%;
+    --navy-100: 228, 62%, 15%;
+    
+    --gold-900: 39, 100%, 95%;
+    --gold-800: 40, 95%, 88%;
+    --gold-700: 41, 90%, 75%;
+    --gold-600: 40, 94%, 68%;
+    --gold-500: 40, 91%, 58%;
+    --gold-400: 36, 80%, 50%;
+    --gold-300: 35, 85%, 40%;
+    --gold-200: 35, 92%, 30%;
+    --gold-100: 36, 100%, 18%;
+    
+    /* Enhanced color RGB values for dark mode glow effects */
+    --blue-rgb: 96, 165, 250;
+    --indigo-rgb: 129, 140, 248;
+    --purple-rgb: 167, 139, 250;
+    --pink-rgb: 244, 114, 182;
+    --rose-rgb: 251, 113, 133;
+    --amber-rgb: 251, 191, 36;
+    --orange-rgb: 251, 146, 60;
+    --emerald-rgb: 52, 211, 153;
+    --teal-rgb: 45, 212, 191;
+    --cyan-rgb: 34, 211, 238;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--navy-800)) 0%,
+      hsl(var(--navy-900)) 100%
+    );
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .gold-gradient {
+    background: linear-gradient(
+      to right,
+      hsl(var(--gold-400)),
+      hsl(var(--gold-600))
+    );
+  }
+  
+  .navy-gradient {
+    background: linear-gradient(
+      to right,
+      hsl(var(--navy-700)),
+      hsl(var(--navy-800))
+    );
+  }
+  
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .gold-text-gradient {
+    background: linear-gradient(
+      to right,
+      hsl(var(--gold-400)),
+      hsl(var(--gold-600))
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .container-custom {
+    @apply container mx-auto px-4 md:px-8 max-w-7xl;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}
