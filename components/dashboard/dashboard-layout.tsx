@@ -3,12 +3,13 @@
 import { ReactNode, useState, useCallback } from 'react'
 import { Sidebar } from './sidebar'
 import { cn } from '@/lib/utils'
-import { Bell, Search } from 'lucide-react'
+import { Bell, Search, Briefcase, ArrowsUpFromLine, CoinsIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { ModeToggle } from '@/components/mode-toggle'
 import { CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from '@/components/ui/command'
 import { Badge } from '@/components/ui/badge'
+import { useRouter } from 'next/navigation'
 
 interface DashboardLayoutProps {
   children: ReactNode
@@ -23,8 +24,20 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   }, [])
 
   const handleSelect = useCallback((value: string) => {
-    // Handle the selected item
-    console.log('Selected:', value)
+    // Handle the selected item based on the value
+    switch (value) {
+      case 'portfolio':
+        window.location.href = '/dashboard/portfolio'
+        break
+      case 'assets':
+        window.location.href = '/dashboard/assets'
+        break
+      case 'market':
+        window.location.href = '/dashboard/market'
+        break
+      default:
+        console.log('Selected:', value)
+    }
     setSearchOpen(false)
   }, [])
 
@@ -36,88 +49,65 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         "min-h-screen flex flex-col transition-all duration-300",
         sidebarCollapsed ? "lg:ml-16" : "lg:ml-64"
       )}>
-        <header className="sticky top-0 z-30 flex h-16 items-center gap-6 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-8">
-          <div className="flex flex-1 items-center gap-6">
-            <div className="relative w-full max-w-xl">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search assets, transactions..."
-                className="w-full bg-background pl-8 focus-visible:ring-primary/50"
-                aria-label="Search assets and transactions"
-                role="searchbox"
-                onClick={handleSearch}
-                readOnly
-              />
-              
-              <CommandDialog open={searchOpen} onOpenChange={setSearchOpen}>
-                <CommandInput placeholder="Search assets, transactions..." />
-                <CommandList className="max-h-[400px] overflow-y-auto">
-                  <CommandEmpty>No results found.</CommandEmpty>
-                  <CommandGroup heading="Assets">
-                    <CommandItem value="commercial-real-estate" onSelect={handleSelect}>
-                      <div className="flex items-center gap-2">
-                        <span>Commercial Real Estate</span>
-                        <Badge variant="outline" className="ml-auto">$1.2M</Badge>
-                      </div>
-                    </CommandItem>
-                    <CommandItem value="gold-reserve" onSelect={handleSelect}>
-                      <div className="flex items-center gap-2">
-                        <span>Gold Reserve</span>
-                        <Badge variant="outline" className="ml-auto">$845K</Badge>
-                      </div>
-                    </CommandItem>
-                    <CommandItem value="art-collection" onSelect={handleSelect}>
-                      <div className="flex items-center gap-2">
-                        <span>Art Collection</span>
-                        <Badge variant="outline" className="ml-auto">$380K</Badge>
-                      </div>
-                    </CommandItem>
-                  </CommandGroup>
-                  <CommandGroup heading="Recent Transactions">
-                    <CommandItem value="po-1234" onSelect={handleSelect}>
-                      <div className="flex items-center gap-2">
-                        <span>Purchase Order #1234</span>
-                        <Badge className="ml-auto bg-green-500">Completed</Badge>
-                      </div>
-                    </CommandItem>
-                    <CommandItem value="sale-5678" onSelect={handleSelect}>
-                      <div className="flex items-center gap-2">
-                        <span>Sale Transaction #5678</span>
-                        <Badge className="ml-auto bg-yellow-500">Pending</Badge>
-                      </div>
-                    </CommandItem>
-                    <CommandItem value="transfer-9012" onSelect={handleSelect}>
-                      <div className="flex items-center gap-2">
-                        <span>Transfer #9012</span>
-                        <Badge className="ml-auto bg-blue-500">Processing</Badge>
-                      </div>
-                    </CommandItem>
-                  </CommandGroup>
-                </CommandList>
-              </CommandDialog>
+        <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          <div className="container flex h-14 items-center">
+            <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="md:hidden" 
+                onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+                aria-label="Toggle sidebar"
+              >
+                <Search className="h-5 w-5" />
+              </Button>
+
+              <div className="flex items-center gap-2">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  onClick={handleSearch}
+                  aria-label="Open search"
+                >
+                  <Search className="h-5 w-5" />
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="icon"
+                  aria-label="Notifications"
+                >
+                  <Bell className="h-5 w-5" />
+                </Button>
+                <ModeToggle />
+              </div>
             </div>
           </div>
-          <div className="flex items-center gap-6">
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="rounded-full relative hover:bg-muted/80"
-              aria-label="Notifications"
-            >
-              <Bell className="h-5 w-5" />
-              <span 
-                className="absolute top-1 right-1.5 flex h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-background"
-                aria-label="New notifications available"
-              >
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              </span>
-            </Button>
-            <div className="h-6 w-px bg-border"></div>
-            <ModeToggle />
-          </div>
         </header>
-        
+
+        <CommandDialog open={searchOpen} onOpenChange={setSearchOpen}>
+          <CommandInput placeholder="Type a command or search..." />
+          <CommandList>
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Navigation">
+              <CommandItem value="portfolio" onSelect={handleSelect}>
+                <Briefcase className="mr-2 h-4 w-4" />
+                Portfolio
+              </CommandItem>
+              <CommandItem value="assets" onSelect={handleSelect}>
+                <CoinsIcon className="mr-2 h-4 w-4" />
+                Assets
+              </CommandItem>
+              <CommandItem value="market" onSelect={handleSelect}>
+                <ArrowsUpFromLine className="mr-2 h-4 w-4" />
+                Market
+                <Badge variant="outline" className="ml-auto">
+                  $2.4M
+                </Badge>
+              </CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </CommandDialog>
+
         <main className="flex-1 p-6 lg:p-8">
           {children}
         </main>
