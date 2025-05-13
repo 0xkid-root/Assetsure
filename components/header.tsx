@@ -154,18 +154,8 @@ export default function Header() {
 
           {/* Desktop Action Buttons */}
           <div className="hidden lg:flex items-center gap-6">
-            <div className="relative group">
-              <Button 
-                variant="ghost" 
-                size="icon"
-                className="rounded-full hover:bg-transparent"
-              >
-                <Search className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-              </Button>
-              <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-background/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Search</span>
-            </div>
             
-            <ModeToggle />
+            {/* <ModeToggle /> */}
             
             <Button 
               variant="outline" 

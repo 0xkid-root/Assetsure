@@ -255,40 +255,14 @@ export default function HeroSection() {
               <Button variant="outline" className="relative overflow-hidden group dark:text-white text-navy-800 border-navy-300/50 dark:border-white/30 hover:bg-white/10 hover:text-navy-900 dark:hover:text-white h-12 px-6 hover:shadow-lg hover:border-amber-500/30 transition-all duration-300 hover:-translate-y-0.5">
                 <span className="relative z-10 flex items-center">
                   <FileText className="mr-2 h-4 w-4" />
-                  Whitepaper
+                  Join Waitlist
                 </span>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r dark:from-white/5 dark:to-white/10 from-navy-100 to-navy-200/50 transition-opacity duration-300 ease-out"></div>
               </Button>
             </motion.div>
             
             {/* Trust indicators */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.7, delay: 1.4 }}
-              className="flex items-center gap-6 mt-8"
-            >
-              <div className="flex -space-x-4">
-                {['DB', 'JP', 'MS', 'GS'].map((initial, i) => (
-                  <motion.div 
-                    key={initial}
-                    initial={{ opacity: 0, scale: 0.8, x: -10 }}
-                    animate={isInView ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0.8, x: -10 }}
-                    transition={{ duration: 0.5, delay: 1.5 + (i * 0.1) }}
-                    className="w-10 h-10 rounded-full bg-gradient-to-br dark:from-navy-600 dark:to-navy-700 from-white to-gray-100 border-2 dark:border-navy-800 border-navy-200 flex items-center justify-center dark:text-white text-navy-800 text-xs font-bold"
-                  >
-                    {initial}
-                  </motion.div>
-                ))}
-              </div>
-              <div className="text-sm dark:text-gray-300 text-navy-600">
-                <p className="font-medium">Trusted by leading financial institutions</p>
-                <p className="flex items-center gap-1">
-                  <span className="dark:text-green-400 text-green-600">500+</span> enterprise clients worldwide
-                  <ChevronRight className="w-4 h-4 dark:text-green-400 text-green-600" />
-                </p>
-              </div>
-            </motion.div>
+            
           </motion.div>
           
           {/* Right content column with interactive 3D dashboard - now spanning 6 columns */}
@@ -519,7 +493,7 @@ export default function HeroSection() {
         </div>
         
         {/* Stats section */}
-        <motion.div
+        {/* <motion.div
           ref={statsRef}
           initial={{ opacity: 0, y: 40 }}
           animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
@@ -544,7 +518,7 @@ export default function HeroSection() {
               <p className="text-gray-600 dark:text-gray-400 text-center group-hover:text-navy-800 dark:group-hover:text-white transition-colors duration-300">{stat.label}</p>
             </motion.div>
           ))}
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

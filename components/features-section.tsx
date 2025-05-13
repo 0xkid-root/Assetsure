@@ -362,66 +362,9 @@ export default function FeaturesSection() {
         </motion.div>
         
         {/* Floating icon in the center */}
-        <motion.div
-          className="relative mt-20 mb-16 flex justify-center"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={floatingIconVariants}
-          whileInView="floating"
-        >
-          <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 flex items-center justify-center shadow-lg overflow-hidden dark:shadow-[0_0_25px_rgba(147,197,253,0.5)]">
-            {/* Animated gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-            </svg>
-            
-            {/* Animated rings */}
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-blue-400"
-              animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            ></motion.div>
-            <motion.div
-              className="absolute inset-0 rounded-full border-2 border-purple-400"
-              animate={{ scale: [1, 1.7, 1], opacity: [1, 0, 1] }}
-              transition={{ duration: 3, delay: 0.5, repeat: Infinity }}
-            ></motion.div>
-          </div>
-        </motion.div>
         
         {/* CTA Button */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="text-center"
-        >
-          <Button className="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 hover:from-blue-600 hover:via-indigo-500 hover:to-purple-600 text-white dark:from-blue-500 dark:via-indigo-400 dark:to-purple-500 dark:hover:from-blue-400 dark:hover:via-indigo-300 dark:hover:to-purple-400 px-8 py-6 h-auto text-lg rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group dark:shadow-[0_0_20px_rgba(147,197,253,0.4)]">
-            {/* Animated gradient overlay */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/40 to-transparent animate-shimmer"></div>
-            </div>
-            <span className="relative z-10 font-semibold tracking-wide">
-            Explore All Features
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="ml-2"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-            </span>
-          </Button>
-        </motion.div>
+
       </div>
     </section>
   );

@@ -87,10 +87,7 @@ const Footer = () => {
                 <Twitter className="h-4 w-4 mr-2" />
                 Twitter
               </Button>
-              <Button variant="outline" size="sm" className="rounded-full bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 backdrop-blur-sm">
-                <Linkedin className="h-4 w-4 mr-2" />
-                LinkedIn
-              </Button>
+              
               <Button variant="outline" size="sm" className="rounded-full bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 backdrop-blur-sm">
                 <Github className="h-4 w-4 mr-2" />
                 GitHub
@@ -116,63 +113,13 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* Middle section with interactive tabs */}
-        <div className="bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm p-6 mb-16">
-          <div className="flex flex-wrap gap-2 mb-6">
-            {Object.keys(categories).map((category) => (
-              <Button 
-                key={category}
-                variant={activeCategory === category ? "default" : "ghost"}
-                onClick={() => setActiveCategory(category as 'platform' | 'company' | 'resources')}
-                className={activeCategory === category 
-                  ? "bg-gradient-to-r from-blue-600 to-purple-600" 
-                  : "text-gray-400 hover:text-white"}
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </Button>
-            ))}
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {categories[activeCategory].map((link: LinkItem, index: number) => (
-              <Link 
-                key={index} 
-                href={link.href}
-                className="group flex items-center p-3 rounded-xl hover:bg-white/10 transition-all duration-200"
-              >
-                <span className="text-gray-300 group-hover:text-white transition-colors">{link.name}</span>
-                <ChevronRight className="h-4 w-4 ml-auto opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-200" />
-              </Link>
-            ))}
-          </div>
-        </div>
-        
+        </div>        
         {/* Bottom section with legal and contact */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-8">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-8">
           <div className="order-2 lg:order-1">
             <div className="text-gray-400 text-sm">
               © {new Date().getFullYear()} Assetsure. All rights reserved.
             </div>
-          </div>
-          
-          <div className="flex flex-wrap gap-x-8 gap-y-4 order-1 lg:order-2">
-            <Link href="#" className="text-gray-400 hover:text-white text-sm flex items-center gap-1 transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-gray-400 hover:text-white text-sm flex items-center gap-1 transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-gray-400 hover:text-white text-sm flex items-center gap-1 transition-colors">
-              Compliance
-            </Link>
-            <Link href="#" className="text-gray-400 hover:text-white text-sm flex items-center gap-1 transition-colors">
-              Legal
-            </Link>
-            <Link href="#contact" className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent font-medium flex items-center gap-1 hover:opacity-80 transition-opacity">
-              Contact Us <ArrowUpRight className="h-3 w-3" />
-            </Link>
           </div>
         </div>
       </div>
