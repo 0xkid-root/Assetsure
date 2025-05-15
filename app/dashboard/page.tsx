@@ -8,25 +8,25 @@ import { BarChart3, TrendingUp, DollarSign, Users, ArrowUpRight, ArrowDownRight 
 
 export default function DashboardPage() {
   return (
-    <DashboardLayout>
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-8 p-6">
+        <div className="flex flex-col gap-3">
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-          <p className="text-muted-foreground">
+          <p className="text-lg text-muted-foreground">
             Welcome back to your dashboard. Here's an overview of your assets.
           </p>
         </div>
 
         {/* Overview Cards */}
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-sm font-medium">Total Value Locked</CardTitle>
-              <DollarSign className="h-4 w-4 text-muted-foreground" />
+              <DollarSign className="h-5 w-5 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">$4,231,589</div>
-              <p className="text-xs text-muted-foreground">
+              <div className="text-2xl font-bold mb-2">$4,231,589</div>
+              <p className="text-sm text-muted-foreground flex items-center gap-1">
+                <ArrowUpRight className="h-4 w-4 text-green-500" />
                 +20.1% from last month
               </p>
               <div className="mt-4 h-1 w-full bg-muted overflow-hidden rounded-full">
@@ -35,39 +35,39 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-sm font-medium">Active Assets</CardTitle>
-              <BarChart3 className="h-4 w-4 text-muted-foreground" />
+              <BarChart3 className="h-5 w-5 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">24</div>
-              <div className="flex items-center pt-1 text-xs text-green-500">
-                <ArrowUpRight className="mr-1 h-3 w-3" />
+              <div className="text-2xl font-bold mb-2">24</div>
+              <div className="flex items-center gap-1 text-sm text-green-500">
+                <ArrowUpRight className="h-4 w-4" />
                 <span>+3 new this week</span>
               </div>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-sm font-medium">Total Yield</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
+              <TrendingUp className="h-5 w-5 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">14.5%</div>
-              <div className="flex items-center pt-1 text-xs text-green-500">
-                <ArrowUpRight className="mr-1 h-3 w-3" />
+              <div className="text-2xl font-bold mb-2">14.5%</div>
+              <div className="flex items-center gap-1 text-sm text-green-500">
+                <ArrowUpRight className="h-4 w-4" />
                 <span>+2.3% from last month</span>
               </div>
             </CardContent>
           </Card>
           <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-sm font-medium">Team Members</CardTitle>
-              <Users className="h-4 w-4 text-muted-foreground" />
+              <Users className="h-5 w-5 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">12</div>
-              <div className="flex items-center pt-1 text-xs text-amber-500">
+              <div className="text-2xl font-bold mb-2">12</div>
+              <div className="flex items-center gap-1 text-sm text-amber-500">
                 <span>3 pending invitations</span>
               </div>
             </CardContent>
@@ -75,7 +75,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Tabs for different data views */}
-        <Tabs defaultValue="assets" className="w-full">
+        <Tabs defaultValue="assets" className="w-full space-y-6">
           <TabsList className="grid w-full grid-cols-3 lg:w-[400px]">
             <TabsTrigger value="assets">Assets</TabsTrigger>
             <TabsTrigger value="transactions">Transactions</TabsTrigger>
@@ -163,6 +163,5 @@ export default function DashboardPage() {
           </TabsContent>
         </Tabs>
       </div>
-    </DashboardLayout>
   )
 }

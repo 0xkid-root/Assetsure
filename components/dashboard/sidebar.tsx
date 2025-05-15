@@ -182,14 +182,6 @@ const sidebarCategories: SidebarCategory[] = [
         path: '/dashboard/support',
         description: 'Get help and support'
       },
-      {
-        id: 'admin',
-        title: 'Admin',
-        icon: Shield,
-        path: '/dashboard/admin',
-        description: 'Administrative controls',
-        roles: ['admin']
-      }
     ]
   }
 ]
@@ -323,32 +315,12 @@ export function Sidebar({ collapsed, onCollapse }: SidebarProps) {
         {collapsed ? (
           <TooltipProvider>
             <div className="flex flex-col gap-2 items-center">
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" onClick={toggleTheme} className="h-8 w-8">
-                    {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent side="right">
-                  <p>{theme === "light" ? "Dark mode" : "Light mode"}</p>
-                </TooltipContent>
-              </Tooltip>
               
               <UserDropdown collapsed={collapsed} />
             </div>
           </TooltipProvider>
         ) : (
           <div className="space-y-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleTheme}
-              className="w-full justify-start gap-2"
-            >
-              {theme === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-              <span>{theme === "light" ? "Dark mode" : "Light mode"}</span>
-            </Button>
-            
             <UserDropdown collapsed={collapsed} />
           </div>
         )}

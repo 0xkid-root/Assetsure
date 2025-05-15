@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils'
 import { Bell, Search, Briefcase, ArrowsUpFromLine, CoinsIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { ModeToggle } from '@/components/mode-toggle'
 import { CommandDialog, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from '@/components/ui/command'
 import { Badge } from '@/components/ui/badge'
 import { useRouter } from 'next/navigation'
@@ -78,7 +77,6 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
                 >
                   <Bell className="h-5 w-5" />
                 </Button>
-                <ModeToggle />
               </div>
             </div>
           </div>
