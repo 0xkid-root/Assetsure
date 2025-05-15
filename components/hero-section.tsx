@@ -293,7 +293,7 @@ export default function HeroSection() {
                 className="relative overflow-hidden group dark:text-white text-navy-800 border-navy-300/50 dark:border-white/30 hover:bg-white/10 hover:text-navy-900 dark:hover:text-white h-12 px-6 hover:shadow-lg hover:border-amber-500/30 transition-all duration-300 hover:-translate-y-0.5"
               >
                 <span className="relative z-10 flex items-center">
-                  <FileText className="mr-2 h-4 w-4" />
+                  <FileText className="mr-4 h-4 w-4" />
                   Join Waitlist
                 </span>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r dark:from-white/5 dark:to-white/10 from-navy-100 to-navy-200/50 transition-opacity duration-300 ease-out"></div>
